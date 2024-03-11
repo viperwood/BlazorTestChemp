@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "3TPUcIb3W0DssvlnZMvvJ6vcs1ExRQ3DN44J+wMZ/Bk1IWdUboXV7W89X06puUuMiGTWe4cl4D6Zj0k9V4yjjA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\prdb\\RiderProjects\\BlazorChemp\\BlazorChemp\\BlazorChemp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\prdb\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

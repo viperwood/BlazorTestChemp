@@ -1,0 +1,120 @@
+﻿@page "/"
+@using Newtonsoft.Json
+@rendermode InteractiveServer
+
+<PageTitle>Registration patient</PageTitle>
+@if (_gender.Count == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <div style="display: block">
+    <input type="email" @bind="@_modelReg.Emailuser"/>
+    <select @bind="@_gend">
+        @foreach(var element in _gender)
+        {
+            <option>@element.Namegender</option>
+        }
+    </select>
+    <InputDate Type="InputDateType.Date" @bind-Value="@_modelReg.Bethday"/>
+    <InputDate Type="InputDateType.Date" @bind-Value="@_modelReg.Datagetmeadcart"/>
+    <InputDate Type="InputDateType.Date" @bind-Value="@_modelReg.Datalastvisit"/>
+    <InputDate Type="InputDateType.Date" @bind-Value="@_modelReg.Datanextvisit"/>
+    <InputDate Type="InputDateType.Date" @bind-Value="@_modelReg.Datafinishpolis"/>
+    <input type="text" @bind="_modelReg.Phone"/>
+    <input type="text" @bind="_modelReg.Nameuser"/>
+    <input type="text" @bind="_modelReg.Adres"/>
+    <input type="text" @bind="_modelReg.Foto"/>
+    <input type="text" @bind="_modelReg.Worck"/>
+    <input type="text" @bind="_modelReg.Strahovcompani"/>
+    <input type="number" @bind="_modelReg.Pasportn"/>
+    <input type="number" @bind="_modelReg.Pasports"/>
+    <input type="number" @bind="_modelReg.Numberpolis"/>
+
+    <p>@_Textresult</p>
+    <button @onclick="ButtonSave">Добавить</button>
+    </div>
+}
+
+@code
+{
+    public ModelReg _modelReg = new ModelReg();
+
+    public string _gend;
+    public string _Textresult = "";
+
+
+    private async void ButtonSave()
+    {
+        _modelReg.Genderuser = _gender.Where(x => x.Namegender == _gend).Select(x => x.Id).ToList()[0];
+        using (var client = new HttpClient())
+        {
+            HttpResponseMessage responseMessage = await client.PostAsJsonAsync("http://localhost:5298/api/Reg/PostReg",_modelReg);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                _Textresult = "Добавлен";
+            }
+            else
+            {
+                _Textresult = "Данные введены неверно";
+            }
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using (var client = new HttpClient())
+        {
+            HttpResponseMessage responseMessage = await client.GetAsync("http://localhost:5298/api/Gender/GetGender");
+            string content = await responseMessage.Content.ReadAsStringAsync();
+            _gender = JsonConvert.DeserializeObject<List<ModelGender>>(content)!.ToList();
+        }
+    }
+
+    public List<ModelGender> _gender = new();
+
+
+    public class ModelGender
+    {
+        public int Id { get; set; }
+
+        public string Namegender { get; set; }
+    }
+
+    public class ModelReg
+    {
+        public string Nameuser { get; set; }
+
+        public string Phone { get; set; }
+
+        public int? Genderuser { get; set; }
+
+        public string Adres { get; set; }
+
+        public string? Foto { get; set; }
+        public string Emailuser { get; set; }
+
+
+        public int Pasportn { get; set; }
+
+        public int Pasports { get; set; }
+
+        public DateTime Bethday { get; set; }
+
+        public string Worck { get; set; }
+
+        public string Strahovcompani { get; set; }
+
+        public DateTime Datagetmeadcart { get; set; }
+
+        public DateTime Datalastvisit { get; set; }
+
+        public DateTime Datanextvisit { get; set; }
+
+        public int Numberpolis { get; set; }
+
+        public DateTime Datafinishpolis { get; set; }
+    }
+}
+

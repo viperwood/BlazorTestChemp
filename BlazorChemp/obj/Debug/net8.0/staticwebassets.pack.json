@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\prdb\\RiderProjects\\BlazorChemp\\BlazorChemp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorChemp.bundle.scp.css",
+      "PackagePath": "staticwebassets\\BlazorChemp.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\prdb\\RiderProjects\\BlazorChemp\\BlazorChemp\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\prdb\\RiderProjects\\BlazorChemp\\BlazorChemp\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\prdb\\RiderProjects\\BlazorChemp\\BlazorChemp\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\prdb\\RiderProjects\\BlazorChemp\\BlazorChemp\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BlazorChemp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.BlazorChemp.props",
+      "PackagePath": "build\\BlazorChemp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.BlazorChemp.props",
+      "PackagePath": "buildMultiTargeting\\BlazorChemp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.BlazorChemp.props",
+      "PackagePath": "buildTransitive\\BlazorChemp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
